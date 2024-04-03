@@ -114,4 +114,5 @@ int main() {
     printf("\n%d", *profundidade);
     free(profundidade);
     lista = liberar(lista);
+    //vlw
 }
