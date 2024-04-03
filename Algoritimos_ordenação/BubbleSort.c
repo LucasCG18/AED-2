@@ -23,7 +23,7 @@ int main(){
     int A[10];
     for (int i = 10, j = 0; i > 0; i--, j++)
     {
-        A[j] = rand()%99;
+        //A[j] = rand()%99;
     }
     printf("Antes de serem organizados:" );
     for (int i = 0; i < 10; i++)
