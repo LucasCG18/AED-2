@@ -13,10 +13,10 @@ int partition(int A[], int p, int r){
     int i,j,x, aux,vetor[3],posicao[3];
     vetor[0] = A[0];
     vetor[1] = A[(p+r)/2];
-    vetor[2] = A[r-1];
-    posicao[0] = 0;
+    vetor[2] = A[r];
+    posicao[0] = p;
     posicao[1] = (p+r)/2;
-    posicao[3] = r-1;
+    posicao[2] = r;
     for (i = 0; i < 3; i++){
         for(j = 0; j < 3 - i; j++){
             if (j < 3 - 1 && vetor[j] > vetor[j + 1])
@@ -30,6 +30,7 @@ int partition(int A[], int p, int r){
             }
         }
     }
+    //printf("Numero: %d, Posicao: %d", vetor[0], posicao[0]);
     x = vetor[1];
     aux = A[r];
     A[r] = A[posicao[1]];
@@ -52,19 +53,21 @@ int partition(int A[], int p, int r){
 }
  
 int main(){
-    int A[10];
-    for (int i = 10, j = 0; i > 0; i--, j++)
+    int i,j,n, *A;
+    scanf("%d",&n);
+    A=malloc(sizeof(int)*n);
+    for (i = 0; i < n; i++)
     {
-        A[j] = rand()%99;
+        scanf("%d",&A[i]);
     }
     printf("Antes de serem organizados:" );
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < n; i++)
     {
         printf(" %d", A[i]);
     }
-    quickSort(A, 0, sizeof(A)/sizeof(int));
+    quickSort(A, 0, n-1);
     printf("\nDepois de serem organizados:" );
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < n; i++)
     {
         printf(" %d", A[i]);
     }
